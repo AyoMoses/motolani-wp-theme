@@ -50,10 +50,12 @@
                                 while ($postlist -> have_posts()) : $postlist -> the_post();
                             ?>
                                 <article>
+                                    <a href="<?php the_permalink(); ?>">
                                     <div class="see-post"><?php the_post_thumbnail('large'); ?></div>
+                                    </a>
 
                                     <!-- we get the title, then the date, the link to the post  -->
-                                    <h3><?php the_title(); ?></h2>
+                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                                     
 
