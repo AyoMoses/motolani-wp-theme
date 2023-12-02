@@ -20,7 +20,7 @@
                             <article>
                                 <!-- we get the title, then the date, the link to the post  -->
                                 <h2>
-                                    <a href="<?php get_permalink(); ?>">
+                                    <a href="<?php the_permalink(); ?>">
                                         <?php the_title(); ?>
                                     </a>
                                 </h2>
@@ -32,7 +32,7 @@
                                 <!-- passing arguments can be necessary if we need to not use css to define our post page  -->
 
                                 <!-- you can also input the image size you want instead of wp default sizes i.e 200x200 inside an array() -->
-                                <a href="<?php get_permalink(); ?>">
+                                <a href="<?php the_permalink(); ?>">
                                     <div class="see-post"><?php the_post_thumbnail(array(230, 230)); ?></div>               
                                 </a>
                                 

@@ -49,38 +49,38 @@
                             if ($postlist -> have_posts()) :
                                 while ($postlist -> have_posts()) : $postlist -> the_post();
                             ?>
-                                <article>
-                                    <a href="<?php the_permalink(); ?>">
-                                    <div class="see-post"><?php the_post_thumbnail('large'); ?></div>
-                                    </a>
+                    <article>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="see-post"><?php the_post_thumbnail('large'); ?></div>
+                        </a>
 
-                                    <!-- we get the title, then the date, the link to the post  -->
-                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                        <!-- we get the title, then the date, the link to the post  -->
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
-                                    
 
-                                    <div class="latest-news">
-                                        <p>
-                                        <span>by <?php the_author_posts_link(); ?> </span>
-                                        <span>Categories: <?php the_category(', ') ?></span> 
-                                        <span>Tags: <?php the_tags('', ', '); ?></span>
-                                        </p>
-                                    
-                                        <p><span><?php echo get_the_date(); ?></span></p>
-                                    </div>
-                                    
-                                    <!-- i get the excerpt of the post  -->
-                                    <?php the_excerpt(); ?>
-                                </article>
-                                <?php
+
+                            <div class="latest-news">
+                                <p>
+                                    <span>by <?php the_author_posts_link(); ?> </span>
+                                    <span>Categories: <?php the_category(', ') ?></span>
+                                    <span>Tags: <?php the_tags('', ', '); ?></span>
+                                </p>
+
+                                <p><span><?php echo get_the_date(); ?></span></p>
+                            </div>
+
+                            <!-- i get the excerpt of the post  -->
+                            <?php the_excerpt(); ?>
+                    </article>
+                    <?php
                                 endwhile;
                                 
                                 // i do this so this query i have does not affect the main wordpress query or if i create a new loop under this one
                                 wp_reset_postdata();
 
                             else : ?>
-                                <p>No Latest news availabe.</p>
-                            <?php endif; ?>
+                    <p>No Latest news availabe.</p>
+                    <?php endif; ?>
                 </div>
             </section>
         </main>
