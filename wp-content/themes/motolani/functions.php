@@ -69,6 +69,8 @@ function tee_config()
         'flex-width' => true,
         'flex-height' => true,
     ));
+
+    add_theme_support('title-tag');
 }
 // this add_action takes the 'after_setup_theme' hook to load everything in our config once the theme is ready to mount. the 0 give it highest proprity
 add_action('after_setup_theme', 'tee_config', 0);
