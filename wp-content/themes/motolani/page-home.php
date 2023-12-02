@@ -3,8 +3,18 @@
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-            <section class="hero">
-                Hero
+            <section class="hero" style="background-image: url('/wp-content/uploads/2023/12/hero-demo.jpeg')">
+                <div class="overlay" style="min-height: 800px;">
+                    <div class="container">
+                        <div class="hero-items">
+                            <h1>Lorem Ipsum dododo</h1>
+                            <p>
+                                Incididunt ipsum consectetur deserunt non commodo officia amet laborum deserunt elit. Elit pariatur labore incididunt deserunt amet. Qui adipisicing incididunt nisi do culpa. Laborum non pariatur dolor laborum est voluptate labore proident Lorem. Anim cupidatat qui amet duis.
+                            </p>
+                            <a href="#">Know Her!</a>
+                        </div>
+                    </div>
+                </div>
             </section>
             <section class="services">
                 <h2>Services</h2>
