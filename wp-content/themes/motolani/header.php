@@ -10,6 +10,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <!-- fire the action in my functions.php -->
+    <?php wp_body_open(); ?>
 
     <div id="page" class="site">
         <header>
