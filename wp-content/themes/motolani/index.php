@@ -47,6 +47,19 @@
                             </article>
                         <?php
                         endwhile;
+                        ?>
+
+                        <!-- i create my example of previous and next pagination  -->
+                        <div class="tee-pagination">
+                            <div class="pages new">
+                                <?php previous_posts_link("<< Previous posts") ?>
+                            </div>
+                            <div class="pages old">
+                                <?php next_posts_link("Older posts >>") ?>
+                            </div>
+                        </div>
+
+                        <?php 
 
                     else : ?>
                         <p>Nothing yet to be displayed.</p>

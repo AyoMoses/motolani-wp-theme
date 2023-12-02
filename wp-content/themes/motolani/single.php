@@ -21,10 +21,24 @@
                     </header>
                     <div class="content">
                         <?php the_content(); ?>
+
+                        <!-- this i have to test the page break inside content if any is used -->
+                        <?php wp_link_pages(); ?>
                     </div>
                 </article>
 
                
+                <!-- NEXT AND PREVIOUS PAGINATION POST ON THE BLOG DETAIL PAGE  -->
+                <!-- this type i have here shows post link names  -->
+                <div class="tee-pagination">
+                    <div class="pages next">
+                        <?php next_post_link('&laquo; %link') ?>
+                    </div>
+                    <div class="pages prev">
+                        <?php previous_post_link('%link &raquo;') ?>
+                    </div>
+                </div>
+
                 
 
             <?php

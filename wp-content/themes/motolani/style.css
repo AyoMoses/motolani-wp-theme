@@ -994,7 +994,7 @@ article.post h5 {
 }
 
 /* Pagination */
-.wpdevs-pagination {
+.tee-pagination {
   display: flex;
   justify-content: space-between;
 }

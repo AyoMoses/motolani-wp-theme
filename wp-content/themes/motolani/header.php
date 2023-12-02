@@ -35,8 +35,9 @@
                         ?>
                     </div>
 
+                    <!-- i get my search form for the my website  -->
                     <div class="searchbox">
-                        Search
+                        <?php get_search_form(); ?>
                     </div>
                 </div>
             </section>
