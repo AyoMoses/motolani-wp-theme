@@ -28,6 +28,10 @@
                             <?php the_content(); ?>
                         </article>
                     <?php
+                    if (comments_open() || get_comment_count()) {
+                        // i load my comment.php file 
+                        comments_template();
+                    }
                     endwhile;
 
                     ?>

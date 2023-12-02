@@ -24,9 +24,19 @@
                     </div>
                 </article>
 
+               
                 
 
-            <?php endwhile; ?>
+            <?php
+            // i also add a check to see if there is an open comment in admin for a post 
+            // if one of the conditions are true, it runs the condition I have inside the statement 
+            // i simply copy the 2016 theme comments.php file to save time writing php to handle comments
+            if (comments_open() || get_comment_count()) {
+                // i load my comment.php file 
+                comments_template();
+            }
+            endwhile;
+        ?>
         </div>
     </div>
 </div>
