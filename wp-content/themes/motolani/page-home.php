@@ -34,54 +34,38 @@
                 <h2>Latets news</h2>
                 <div class="container">
                     <?php
-                        // I get the category of each post I do not want to display in my custom loop - this i get from the admin on hover on categories
-                        $args = array(
-                            // default of post_type is post and if you need it to be a page, you pass page
-                            'post_type' => 'post',
-                            'posts_per_page' => 4,
-                            'category__in' => array(6, 5, 12, 13),
-                            'category__out' => array(1),
-                        );
-                        
-                        // I pass a new instance of the WP_Query class with my array of args
-                        $postlist = new WP_Query($args);
+                    // Get the category IDs of the posts you want to exclude
+                    $exclude_categories = array(1);
 
-                            if ($postlist -> have_posts()) :
-                                while ($postlist -> have_posts()) : $postlist -> the_post();
-                            ?>
-                    <article>
-                        <a href="<?php the_permalink(); ?>">
-                            <div class="see-post"><?php the_post_thumbnail('large'); ?></div>
-                        </a>
+                    $args = array(
+                        'post_type'      => 'post',
+                        'posts_per_page' => 4,
+                        'category__in'   => array(6, 5, 12, 13),
+                        'category__not_in' => $exclude_categories,
+                    );
 
-                        <!-- we get the title, then the date, the link to the post  -->
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    // Create a new instance of the WP_Query class with the specified arguments
+                    $postlist = new WP_Query($args);
 
+                    // Check if there are posts
+                    if ($postlist->have_posts()) :
+                        // Start the loop
+                        while ($postlist->have_posts()) : $postlist->the_post();
 
+                            // Include the template part for displaying latest news
+                            get_template_part('parts/content-latest-news', 'latest-news');
 
-                            <div class="latest-news">
-                                <p>
-                                    <span>by <?php the_author_posts_link(); ?> </span>
-                                    <span>Categories: <?php the_category(', ') ?></span>
-                                    <span>Tags: <?php the_tags('', ', '); ?></span>
-                                </p>
+                        endwhile;
 
-                                <p><span><?php echo get_the_date(); ?></span></p>
-                            </div>
+                        // Reset post data to avoid interference with the main WordPress query
+                        wp_reset_postdata();
 
-                            <!-- i get the excerpt of the post  -->
-                            <?php the_excerpt(); ?>
-                    </article>
-                    <?php
-                                endwhile;
-                                
-                                // i do this so this query i have does not affect the main wordpress query or if i create a new loop under this one
-                                wp_reset_postdata();
-
-                            else : ?>
-                    <p>No Latest news availabe.</p>
+                    else : ?>
+                        <!-- Display a message if no posts are found -->
+                        <p>No Latest news available.</p>
                     <?php endif; ?>
                 </div>
+
             </section>
         </main>
     </div>

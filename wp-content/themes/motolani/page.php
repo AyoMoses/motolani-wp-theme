@@ -17,17 +17,9 @@
                     <?php
                     //  we already have posts hence we do not need to check for posts and only loop 
                     while (have_posts()) : the_post();
-                    ?>
-                        <article>
-                            <!-- we get the title, then the date, the link to the post  -->
-                            <header>
-                                <h1><?php the_title(); ?></h1>
-                            </header>
+                    
+                    get_template_part('parts/content-page.php', 'page');
 
-                            <!-- this is not necessary except you want to correct where the content will show and style it better just like <Outlet /> in reactjs -->
-                            <?php the_content(); ?>
-                        </article>
-                    <?php
                     if (comments_open() || get_comment_count()) {
                         // i load my comment.php file 
                         comments_template();

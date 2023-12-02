@@ -21,29 +21,18 @@
                     <?php
                     if (have_posts()) :
                         while (have_posts()) : the_post();
-                    ?>
-                            <article>
-                                <!-- we get the title, then the date, the link to the post  -->
-                                <h2>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h2>
-                                
-
-                                <div class="meta-info">
-                                    <p>Posted in <?php echo get_the_date(); ?> by <?php the_author_posts_link(); ?> </p>
-                                    <p>Categories: <?php the_category(', ') ?></p>
-                                    <p>Tags: <?php the_tags('', ', '); ?></p>
-                                </div>
-
-                                <?php the_excerpt(); ?>
-                            </article>
-                        <?php
+                            // Check if the template part file exists
+                            if (locate_template('parts/content-archive.php')) {
+                                get_template_part('parts/content-archive', 'archive');
+                                // my second parameter checks for a file name called archive and renders it - content-archive
+                            } else {
+                                // If the template part doesn't exist, display a message
+                                echo '<p>Template part "content-archive.php" not found.</p>';
+                            }
                         endwhile;
                         ?>
 
-                        <!-- i create my example of previous and next pagination  -->
+                        <!-- Example of previous and next pagination -->
                         <div class="tee-pagination">
                             <div class="pages new">
                                 <?php previous_posts_link("<< Previous posts") ?>
@@ -53,12 +42,16 @@
                             </div>
                         </div>
 
-                        <?php 
-
-                    else : ?>
+                        <?php
+                    else :
+                        // No posts found
+                        ?>
                         <p>Nothing yet to be displayed.</p>
-                    <?php endif; ?>
+                    <?php
+                    endif;
+                    ?>
                 </div>
+
 
                 <!-- get the sidebar created inside sidebar.php  -->
                 <?php get_sidebar(); ?>
