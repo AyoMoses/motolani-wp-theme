@@ -2,7 +2,9 @@
     <div class="container">
         <div class="copyright">
             <p>
-                Copyright &copy; - All rights reserved.
+                <!-- i added a theme modification for user to change copyright and get retreived from the database and dretrieved here -->
+                <!-- the mod name and the default value to show when not added  -->
+                <?php echo get_theme_mod('set_copyright', 'Copyright X - All right reserved'); ?>
             </p>
         </div>
         <nav class="footer-menu">

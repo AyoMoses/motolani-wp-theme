@@ -1,5 +1,7 @@
 <?php
 
+require get_template_directory() . '/inc/customizer.php';
+
 function tee_load_scripts() {
     // wp_enqueue_style is used to add styles. It takes a handle which is a unqiue name
     // get_stylesheet_uri() goes to the style.css file created at the root of the project
