@@ -1,6 +1,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="meta-info">
-        <div><?php the_post_thumbnail('thumbnail'); ?></div>
+        <?php if(has_post_thumbnail()): ?>
+            <div><?php the_post_thumbnail('thumbnail'); ?></div>
+        <?php endif ?>
+       
         <h2><a href="<? the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
         <?php if('post' == get_post_type()): ?>

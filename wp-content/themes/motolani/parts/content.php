@@ -13,9 +13,11 @@
     <!-- passing arguments can be necessary if we need to not use css to define our post page  -->
 
     <!-- you can also input the image size you want instead of wp default sizes i.e 200x200 inside an array() -->
-    <a href="<?php the_permalink(); ?>">
-        <div class="see-post"><?php the_post_thumbnail(array(230, 230)); ?></div>               
-    </a>
+    <?php if (has_post_thumbnail()): ?>
+        <a href="<?php the_permalink(); ?>">
+         <div class="see-post"><?php the_post_thumbnail(array(230, 230)); ?></div>               
+        </a>
+    <?php endif; ?>
     
 
     <div class="meta-info">
